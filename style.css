@@ -1,0 +1,192 @@
+/* 
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+- Orange: hsl(25, 97%, 53%)
+
+### Neutral
+
+- White: hsl(0, 0%, 100%)
+- Light Grey: hsl(217, 12%, 63%)
+- Medium Grey: hsl(216, 12%, 54%)
+- Dark Blue: hsl(213, 19%, 18%)
+- Very Dark Blue: hsl(216, 12%, 8%)
+
+## Typography
+
+### Body Copy
+
+- Font size (paragraph): 15px */
+
+
+/* google fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Overpass', sans-serif;
+}
+:root {
+    /* ### Primary */
+
+    --orange: hsl(25, 97%, 53%);
+    
+    /* ### Neutral */
+    
+    --white: hsl(0, 0%, 100%);
+    --light-Grey: hsl(217, 12%, 63%);
+    --medium-Grey: hsl(216, 12%, 54%);
+    --dark-Blue: hsl(213, 19%, 18%);
+    --very-Dark-Blue: hsl(216, 12%, 8%);
+}
+
+
+html,body {
+    display: grid;
+    align-items: center;
+    height: 100%;
+    background-color: var(--very-Dark-Blue);
+    justify-content: center;
+    color: var(--white);
+    font-weight: 400;
+    font-size: 15px
+}
+main {
+    width: 400px;
+    background: linear-gradient( #1F252F, #181E28);
+    padding: 30px;
+    border-radius: 25px;
+}
+
+
+main .star {
+    padding: 1rem;
+    background-color: #232a37;
+    display: inline-block;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    font-size: 15px;
+    color: var(--orange);
+}
+.rating__state{
+    transition: all 0.5s ease;
+}
+main .rating__state header {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+main .rating__state .text {
+    color: var(--light-Grey);
+    margin: 1rem 0;
+}
+main .rating__state {
+    width: 100%;
+}
+
+main .rating__state input{
+    display: none;
+}
+
+.rating__count {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+main .rating__state label {
+    background-color: #202632;
+    padding: 1.3rem;
+    margin-top: 1rem;
+    border-radius: 50%;
+    text-align: center;
+    width: 55px;
+    height: 55px;
+    transition: all 0.35s ease;
+}
+
+main .rating__state input:not(:checked) ~ label:hover,
+main .rating__state input:not(:checked) ~ label:hover ~ label {
+    background-color: var(--orange);
+    cursor: pointer;
+}
+
+main .rating__state input:checked ~ label {
+    background-color: var(--orange);
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 2.5rem;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--orange);
+    color: var(--white);
+    font-size: 18px;
+}
+
+
+
+.rating__result  {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    transition: all 0.5s ease;
+}
+.rating__result img {
+    width: 50%;
+}
+.rating__order {
+    color: var(--orange);
+    padding: 10px 20px;
+    background-color: #1F252F;
+    border-radius: 30px;
+    margin: 15px 0;
+}
+
+.rating__result p {
+    color: var(--light-Grey);
+}
+
+.attribution {
+    width: 65%;
+    text-align: center;
+    margin: 2rem auto;
+    color: var(--light-Grey);
+}   
+.attribution a {
+    color: var(--white);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.attribution a:hover {
+    color: var(--orange)
+}
+
+/* Mobile Device  */
+
+@media screen and (max-width: 500px){
+    main {
+        width: 355px;
+        justify-content: center;
+        align-items: center;
+        margin: 4rem auto;
+    }
+}
