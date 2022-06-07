@@ -1,103 +1,105 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <!-- import font awesome 6.1.1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <!-- import font awesome 6.1.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <script src="./main.js"></script>
+    <title>Frontend Mentor | Interactive rating component</title>
+  </head>
 
-  <link rel="stylesheet" href="style.css">
-  <script src="./main.js"></script>
-  <title>Frontend Mentor | Interactive rating component</title>
+  <body>
+    <!-- Rating state start -->
+    <main>
+      <div class="rating__state">
+        <div class="star"><i class="fa-solid fa-star"></i></div>
+        <header>How did we do?</header>
+        <div class="text">
+          Please let us know how we did with your support request. All feedback
+          is appreciated to help us improve our offering!
+        </div>
 
-
-</head>
-
-<body>
-
-  <!-- Rating state start -->
-  <main>
-    <div class="rating__state">
-      <div class="star"><i class="fa-solid fa-star"></i></div>
-      <header>How did we do?</header>
-      <div class="text">
-        Please let us know how we did with your support request. All feedback is appreciated
-        to help us improve our offering!
+        <div dir="rtl" class="rating__count">
+          <input type="radio" name="rate" id="rate-5" value="5" />
+          <label for="rate-5">5</label>
+          <input type="radio" name="rate" id="rate-4" value="4" />
+          <label for="rate-4">4</label>
+          <input type="radio" name="rate" id="rate-3" value="3" />
+          <label for="rate-3">3</label>
+          <input type="radio" name="rate" id="rate-2" value="2" />
+          <label for="rate-2">2</label>
+          <input type="radio" name="rate" id="rate-1" value="1" />
+          <label for="rate-1">1</label>
+        </div>
+        <form>
+          <button type="submit" id="submit">Submit</button>
+        </form>
       </div>
 
-      <div dir="rtl" class="rating__count">
-        <input type="radio" name="rate" id="rate-5" value="5">
-        <label for="rate-5">5</label>
-        <input type="radio" name="rate" id="rate-4" value="4">
-        <label for="rate-4">4</label>
-        <input type="radio" name="rate" id="rate-3" value="3">
-        <label for="rate-3">3</label>
-        <input type="radio" name="rate" id="rate-2" value="2">
-        <label for="rate-2">2</label>
-        <input type="radio" name="rate" id="rate-1" value="1">
-        <label for="rate-1">1</label>
+      <!-- Rating state end -->
+
+      <!-- Thank you state start -->
+      <div class="thank__you rating__result">
+        <img
+          src="./images/illustration-thank-you.svg"
+          alt="illustration-thank-you"
+        />
+
+        <div class="rating__order">
+          <!-- Add rating here -->
+          You selected <span id="result">4</span> out of 5
+        </div>
+        <h2>Thank you!</h2>
+
+        <p>
+          We appreciate you taking the time to give a rating. If you ever need
+          more support, don’t hesitate to get in touch!
+        </p>
+
+        <!-- Thank you state end -->
       </div>
-      <form>
-        <button type="submit" id="submit">Submit</button>
-      </form>
+    </main>
+
+    <script>
+      const btn = document.querySelector("button");
+      const ratingState = document.querySelector(".rating__state");
+      const ratingResult = document.querySelector(".rating__result");
+      ratingResult.style.display = "none";
+      btn.onclick = (e) => {
+        e.preventDefault();
+        ratingState.style.display = "none";
+        ratingResult.style.display = "flex";
+        var ele = document.getElementsByName("rate");
+        ratingState.classList.add("displayNone");
+        for (i = 0; i < ele.length; i++) {
+          if (ele[i].checked)
+            document.getElementById("result").innerHTML = ele[i].value;
+        }
+      };
+    </script>
+  </body>
+
+  <footer>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://a-lamloum.github.io/react-portfolio/">Ahmed Lamloum</a>.
     </div>
-
-
-    <!-- Rating state end -->
-
-    <!-- Thank you state start -->
-    <div class="thank__you rating__result">
-      <img src="./images/illustration-thank-you.svg" alt="illustration-thank-you">
-
-      <div class="rating__order">
-        <!-- Add rating here --> You selected
-        <span id="result">4</span> out of 5
-      </div>
-      <h2>Thank you!</h2>
-
-      <p>
-        We appreciate you taking the time to give a rating. If you ever need more support,
-        don’t hesitate to get in touch!
-      </p>
-
-      <!-- Thank you state end -->
-    </div>
-  </main>
-
-  <script>
-    const btn = document.querySelector("button");
-    const ratingState = document.querySelector(".rating__state");
-    const ratingResult = document.querySelector(".rating__result");
-    ratingResult.style.display = "none";
-    btn.onclick = (e) => {
-      e.preventDefault();
-      ratingState.style.display = "none";
-      ratingResult.style.display = "flex";
-      var ele = document.getElementsByName('rate');
-      ratingState.classList.add("displayNone");
-      for (i = 0; i < ele.length; i++) {
-        if (ele[i].checked)
-          document.getElementById("result").innerHTML
-            = ele[i].value;
-      }
-    }
-
-
-  </script>
-
-
-
-</body>
-
-<footer>
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="https://a-lamloum.github.io/react-portfolio/">Ahmed Lamloum</a>.
-  </div>
-</footer>
-
+  </footer>
 </html>
