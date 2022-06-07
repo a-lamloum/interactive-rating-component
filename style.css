@@ -168,7 +168,7 @@ button {
 .attribution {
     width: 65%;
     text-align: center;
-    margin: 2rem auto;
+    margin: 1em auto;
     color: var(--light-Grey);
 }   
 .attribution a {
